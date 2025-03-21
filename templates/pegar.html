@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Livros</title>
+    <!-- Link para o arquivo CSS externo -->
+    <link rel="stylesheet" href="/static/pegar.css">
+</head>
+<body>
+    <h1>Lista de Livros</h1>
+
+    <div class="livro-container">
+        {% for livro in livros %}
+        <div class="livro-card">
+            <img src="{{ livro.imagem_url }}" alt="{{ livro.titulo }}">
+            <h2>{{ livro.titulo }}</h2>
+            <p><strong>Categoria:</strong> {{ livro.categoria }}</p>
+            <p><strong>Autor:</strong> {{ livro.autor }}</p>
+        </div>
+        {% endfor %}
+    </div>
+
+    <!-- Link para voltar à página inicial -->
+    <a href="/" class="voltar-link">Voltar para a página inicial</a>
+</body>
+</html>

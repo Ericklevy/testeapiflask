@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Doar Livro</title>
+    <!-- Link para o arquivo CSS externo -->
+    <link rel="stylesheet" href="/static/dar.css">
+</head>
+<body>
+    <div>
+        <h1>Doar Livro</h1>
+        <form id="doarLivroForm">
+            <label for="titulo">Título:</label>
+            <input type="text" id="titulo" name="titulo" required><br><br>
+
+            <label for="categoria">Categoria:</label>
+            <input type="text" id="categoria" name="categoria" required><br><br>
+
+            <label for="autor">Autor:</label>
+            <input type="text" id="autor" name="autor" required><br><br>
+
+            <label for="imagem_url">URL da Imagem:</label>
+            <input type="text" id="imagem_url" name="imagem_url" required><br><br>
+
+            <button type="submit">Doar Livro</button>
+        </form>
+
+        <!-- Link para voltar à página inicial -->
+        <a href="/" class="voltar-link">Voltar para a página inicial</a>
+    </div>
+
+    <script>
+        document.getElementById('doarLivroForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            const formData = {
+                titulo: document.getElementById('titulo').value,
+                categoria: document.getElementById('categoria').value,
+                autor: document.getElementById('autor').value,
+                imagem_url: document.getElementById('imagem_url').value
+            };
+
+            fetch('/doar', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(formData)
+            })
+            .then(response => response.json())
+            .then(data => {
+                alert(data.mensagem);
+            })
+            .catch(error => {
+                console.error('Erro:', error);
+            });
+        });
+    </script>
+</body>
+</html>
