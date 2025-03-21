@@ -18,12 +18,10 @@
         </ul>
 
         <!-- Link para a página de doação de livros -->
-        <a href="http://127.0.0.1:5000/dar">
-            Clique aqui para doar um livro
-        </a>
+        <a href="{{ url_for('pagina_doar') }}">Clique aqui para doar um livro</a>
 
         <!-- Link para a página de listagem de livros -->
-        <a href="http://127.0.0.1:5000/livros">
+        <a href="{{ url_for('listar_livros') }}">
             Clique aqui para ver os livros cadastrados
         </a>
     </div>
