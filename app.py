@@ -74,7 +74,7 @@ def listar_livros():
             livros_formatados.append(livro_formatado)
             
 
-        return render_template('pegar.html', livros=livros_formatados)
+        return render_template('pegar.html', livros=livros_formatados) and jsonify(livros_formatados)
     
 
 @app.route('/livros/<int:id_livro>', methods=['DELETE'])
